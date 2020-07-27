@@ -3,6 +3,7 @@
           <td>{{tile.model}}</td>
           <td>{{tile.price | currency:'INR'}}</td>changeRating
           <td>{{tile.status | status :'IS':'OS'}}</td>
+          <td>{{tile.Id}}</td>
           <td><ut-star [rating]='tile.rating' (ratingUpdated)="updateNewRating($event)"></ut-star>
            
           </td>
