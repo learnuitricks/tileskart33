@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="card ">
+  <div class="card-header bg-primary">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <select [(ngModel)]="selectedFilter" id="selectBox" name="filterBox">
+            <option *ngFor="let filter of filterOptions" value="{{filter}}"
+      >{{filter}}</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <input type="text" [(ngModel)]="filterText" name="filterText" id="fiterText" />
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-primary" (click)="filter()">Go</button>
+        </div>
+      </div>
+    </div>
+   
+
+    
+
+  </div>
+  <div class="card-body o">
+    <table class="table table-striped" *ngIf="tiles && tiles.length>1" >
+      <thead>
+      <tr>
+      <th>Image</th>
+      <th> name</th>
+      <th> model</th>
+      <th> price</th>
+      <th>Stock</th>
+      <th>Rating</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tile of filtedTiles" ut-tile [tile]="tile">
+          <!-- <app-tile [tile]="tile"></app-tile> -->
+        
+        
+        </tr>
+      </tbody>
+     
+      </table>
+
+      <div>{{errorMessage}}</div>
+  </div>
+  <div class="card-footer bg-primary">
+    <p>DateTime as Milliseconds : {{todayNumber}} 
+      datepipe:{{todayNumber | date}}</p>
+      <p style="float: right;">{{tileService.getCurrentLocale()}}</p>
+      <!-- <p>DateTime as object : {{todayDate}}  -->
+  </div>
+</div>
+</div> 
+

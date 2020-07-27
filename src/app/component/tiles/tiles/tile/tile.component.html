@@ -1,0 +1,9 @@
+  <td> <img [src]="imagePath+tile.image" alt="" srcset=""  width="42" height="42"> </td>
+          <td>   <a [routerLink]="['/tiles',tile.Id]" [queryParams]="{name:tile.name,model:tile.model}"> {{tile.name  | uppercase }}</a>    </td>
+          <td>{{tile.model}}</td>
+          <td>{{tile.price | currency:'INR'}}</td>changeRating
+          <td>{{tile.status | status :'IS':'OS'}}</td>
+          <td><ut-star [rating]='tile.rating' (ratingUpdated)="updateNewRating($event)"></ut-star>
+           
+          </td>
+          <!-- <td> <button (click)='changeRating()'>changeRating</button> </td> -->

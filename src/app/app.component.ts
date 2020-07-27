@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tilesKart32';
+  title = 'welcome to angular';
+  orderid = 1;
+  ordername = 'abc';
+  orderedproduct ='mango';
+
+  employee = {
+    name:'harsh',
+    age:23,
+    married:true
+  }
 }

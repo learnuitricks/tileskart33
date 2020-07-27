@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="card ">
+    <div class="card-header bg-primary">Tiles</div>
+    <div class="card-body ">
+    <div class="container" >
+    <form name="register" [formGroup]="registerForm"  >
+    <div class="form-group" >
+    <label for="userName">User Name</label>
+    <input type="text" class="form-control"  formControlName="userName" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="registerForm.get('userName').status === 'INVALID'">
+        user name is required
+    </div>
+
+    <div>
+        valid : {{registerForm.get('userName').status}}
+    </div>
+    <div>
+        pristine : {{registerForm.get('userName').pristine}}
+    </div>
+    <div>
+        touched : {{registerForm.get('userName').touched}}
+    </div>
+    <div class="form-group" >
+        <label for="email">Email</label>
+        <input type="email"  class="form-control" formControlName="email">
+      </div>
+
+     
+      <div class="form-group" >
+        <label for="phoneNumber">Phone Number</label>
+        <input type="phone"  class="form-control" formControlName="phoneNumber">
+      </div>
+
+      
+
+
+
+
+
+
+<div formGroupName="billingAdress" >
+    <h3>Billing Address</h3>
+    <label>
+      Door Number
+      <input type="text" formControlName="doorNumber">
+    </label>
+     <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+   
+     <label>
+      Pin Code:
+      <input type="text" formControlName="zip" required>
+    </label>
+    <div class="alert alert-danger" *ngIf="registerForm.get('billingAdress').get('zip').status === 'INVALID' && registerForm.get('billingAdress').get('zip').hasError('required') ">
+      zipcode is required
+  </div>
+  <div class="alert alert-danger" *ngIf="registerForm.get('billingAdress').get('zip').status === 'INVALID'  && registerForm.get('billingAdress').get('zip').hasError('pattern') ">
+    input is not valid zipcode
+</div>
+
+  </div>
+ 
+ 
+
+      <div>
+        <button class="btn btn-primary" (click)="register()"  [disabled]='!registerForm.valid'>Register</button>
+         </div>
+        
+         <div class="alert alert-success">
+           {{message}}
+         </div>
+         <div>
+             registerForm : {{registerForm.value | json}}
+         </div>
+     
+    </form>
+    </div>      
+    </div>
+    <div class="card-footer bg-primary"></div>
+    </div>
+    
+                          
+    
